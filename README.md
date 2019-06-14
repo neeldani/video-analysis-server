@@ -2,7 +2,7 @@
 Video Analysis API.        
 
 ## Description
-Video Analysis API is an API built using Springboot and Python. The springboot accepts a video of a person and returns with a JSON response of tags such as gender and emotions. The tags are the output of a python script.     
+Video Analysis API is an API built using Springboot and Python. The springboot accepts a video of a person and returns with a JSON response of tags such as gender and emotions. The tags are the output of a python script which uses a Convolutional neural network.     
 [**NOTE**: The project is still under development and further tags like age, etc need to be added.]
 
 ## Directory Structure
