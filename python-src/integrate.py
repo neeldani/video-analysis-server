@@ -64,7 +64,10 @@ from utils.helper import store_in_json_file
 from utils.helper import get_video_path
 import random
 
-os.chdir("/home/neel/sts-workspace/Test-Video-Analysis-API/python-src")
+#Change directory to python working directory
+root = os.getcwd() + "/python-src/"
+os.chdir(root)
+
 #All parameters are stored in this file. Tweak parameters in config.ini for changes.
 PATH_TO_CONFIG_FILE = "config.ini"
 
@@ -234,6 +237,6 @@ tags['Gender'] = predicted_gender
 tags['Emotions'] = predicted_emotions
 
 #generate random tags for subject for now
-tags['Subject'] = list(subject_count.keys())[random.randint(0, len(subject_count)-1)]
+tags['Subject'] = [list(subject_count.keys())[random.randint(0, len(subject_count)-1)]]
 print(tags)
 store_in_json_file(tags, json_tag_write_path)

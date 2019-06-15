@@ -21,12 +21,12 @@ public class Analyser {
         String tags = "";
 		try {
             
-        	System.out.println("Running python script..");
         	String command = "python3 " + pathManager.getPythonSrc() + "integrate.py " + downloadPath;
-            System.out.println(command);
+            //System.out.println(command);
+        	System.out.println("Running python script..");
         	Process p = Runtime.getRuntime().exec(command);
             p.waitFor();
-           
+            
             tags += new String(Files.readAllBytes(Paths.get(jsonFilePath))); 
            
         }

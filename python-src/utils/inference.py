@@ -27,8 +27,9 @@ def apply_offsets(face_coordinates, offsets):
 def apply_offset(face_coordinates, offsets, frame_dim):
     
     '''
-    This function is for my use and it makes 
-    sure that the coorindates of the bounding box are within the frame
+    This function makes 
+    sure that the coorindates of the bounding box 
+    are within the frame
     '''
 
     x, y, width, height = face_coordinates

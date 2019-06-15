@@ -11,7 +11,7 @@ public class PathManager {
 	private String downloadedVideos = "";
 	
 	PathManager(){
-		root 				+= "/home/neel/sts-workspace/Test-Video-Analysis-API/";
+		root 				+= System.getProperty("user.dir") + "/";
 		src 				+= "src/";
 		jsonFiles 			+= "json-files/";
 		pythonSrc			+= "python-src/";
