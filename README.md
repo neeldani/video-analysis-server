@@ -7,15 +7,27 @@ Video Analysis API is an API built using Springboot and Python. The springboot a
 
 ## Directory Structure
 Test-Video-Analysis-API is the root of the project.  
-- **src**: contains the springboot project.  
+- **src**: contains the springboot server.  
 - **python-src** 
-   - integrate.py is the main script that returns the JSON tags.
+   - integrate.py is the main script that outputs the JSON tags using CNNs.
 
 - **json-files**: contains .json files for each tag.  
-- **downloaded-videos**: contains downloaded videos sent from client.  
-- **pom.xml**: contains the Maven dependencies for springboot.
+- **downloaded-videos**: contains downloaded videos sent by client.  
+- **pom.xml**: contains the Maven dependencies for springboot. Update this file to add Maven dependencies.
 
 ## Usage
 Clone the repository using git clone.  
-Open video-analysis-server/Test-Video-Analysis-API/ as an Eclipse/ STS project.  
-Run the server. [The Server should be up and running!].
+Open video-analysis-server/Test-Video-Analysis-API/ as an Eclipse/ STS project.    
+Run the server. [The Server should be up and running!].  
+Use Postman for sending HTTP POST request.  
+Set the URI to:    
+```    
+http://localhost:4001/upload    
+```  
+
+[**NOTE**: The port no. can be changed in video-analysis-server/src/main/resources/application-properties.]  
+  
+Server consumes **form-data** in the body. 
+The body should contain 2 fields:
+- key: **video** ; value = **video to be uploaded**.
+- key: **id** ; value = **any integer id**.
