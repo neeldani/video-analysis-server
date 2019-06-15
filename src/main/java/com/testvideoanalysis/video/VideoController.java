@@ -1,7 +1,10 @@
 package com.testvideoanalysis.video;
 
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,15 +17,25 @@ public class VideoController {
 	@Autowired
 	private VideoService videoService;
 	
-	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-	public String uploadFile(@RequestParam(value="video") MultipartFile file, @RequestParam(value="id") String videoId) {
-		if (file == null)
-		{
-			System.out.println("File is NULL\n");
-			return null;
-		}
+	
+	@RequestMapping(value = "/drupal/upload", method = RequestMethod.POST)
+	public String uploadVideo(@RequestParam(value="video") MultipartFile file, @RequestParam(value="id") String videoId) {
 		
-		return videoService.uploadFile(new Video(file.getOriginalFilename(), videoId), file);
+		Optional<Video> checkVideo = videoService.getVideo(videoId);
+		if (checkVideo.isPresent())
+			return checkVideo.get().getTags();
+		
+		return videoService.uploadVideo(new Video(file.getOriginalFilename(), videoId), file);
+	}
+	
+	@RequestMapping (value="/drupal/videos/status/{id}", method = RequestMethod.GET)
+	public String getVideoStatus(@PathVariable String id) {
+		return videoService.getVideoStatus(id);
+	}
+	
+	@RequestMapping(value="/drupal/videos/{id}", method = RequestMethod.GET)
+	public Optional<Video> getVideo(@PathVariable String id) {
+		return videoService.getVideo(id);
 	}
 	
 }
