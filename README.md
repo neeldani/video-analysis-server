@@ -24,6 +24,9 @@ Set the URI to:
 ```    
 http://localhost:4001/upload    
 ```  
+
+[**NOTE**: The port no. can be changed in video-analysis-server/src/main/resources/application-properties.]  
+  
 Server consumes **form-data** in the body. 
 The body should contain 2 fields:
 - key: **video** ; value = **video to be uploaded**.
