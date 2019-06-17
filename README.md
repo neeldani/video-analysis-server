@@ -19,7 +19,7 @@ Test-Video-Analysis-API is the root of the project.
 Clone the repository using git clone.  
 Open video-analysis-server/Test-Video-Analysis-API/ as an Eclipse/ STS project.    
 Run the server. [The Server should be up and running!].  
-Use Postman for sending HTTP POST request.
+Use Postman for sending HTTP POST request.  
 Run MongoDB in the background.  
 
 ```   
