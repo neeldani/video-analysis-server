@@ -19,10 +19,17 @@ Test-Video-Analysis-API is the root of the project.
 Clone the repository using git clone.  
 Open video-analysis-server/Test-Video-Analysis-API/ as an Eclipse/ STS project.    
 Run the server. [The Server should be up and running!].  
-Use Postman for sending HTTP POST request.  
+Use Postman for sending HTTP POST request.
+Run MongoDB in the background.  
+
+```   
+sudo service mongod start  
+mongo  
+```  
+   
 Set the URI to:    
 ```    
-http://localhost:4001/upload    
+http://localhost:4001/drupal/upload    
 ```  
 
 [**NOTE**: The port no. can be changed in video-analysis-server/src/main/resources/application-properties.]  
