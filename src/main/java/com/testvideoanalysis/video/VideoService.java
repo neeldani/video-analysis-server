@@ -41,6 +41,11 @@ public class VideoService {
 		      updateStatus(video, "Finished");
 		      updateTags(video, tags);
 		      
+		      //delete stored video and JSON file
+		      Files.deleteIfExists(Paths.get(pathManager.getDownloadedVideos() + video.getVideoNameWithExtension() ) ); 
+		      Files.deleteIfExists(Paths.get(pathManager.getJsonFiles() + video.getVideoName() + ".json")); 
+		      
+		      
 		      return tags;
 		}
 		
@@ -55,7 +60,7 @@ public class VideoService {
 		if (video.isPresent())
 			return video.get().getStatus();
 		
-		return "Video ID is Invalid.";
+		return "Video ID is invalid and doesnt exist in the Database.";
 	}
 	
 	public void updateStatus(Video video, String status) {
